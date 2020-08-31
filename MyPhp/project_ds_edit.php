@@ -124,9 +124,9 @@ else {
 							while ($row=mysqli_fetch_array($result)){
 							if ($row['OSPI_Test_Engineer'] != 'Manny Mandac'){
 							    if ($TE1 == $row['OSPI_Test_Engineer']){
-									$output = $output."<option value='".$row['OSPI_Test_Engineer']."' selected>".$row['OSPI_Test_Engineer']."</option>";
+									$output = $output."<option value='".utf8_encode($row['OSPI_Test_Engineer'])."' selected>".utf8_encode($row['OSPI_Test_Engineer'])."</option>";
 								}else{
-									$output = $output."<option value='".$row['OSPI_Test_Engineer']."'>".$row['OSPI_Test_Engineer']."</option>";
+									$output = $output."<option value='".utf8_encode($row['OSPI_Test_Engineer'])."'>".utf8_encode($row['OSPI_Test_Engineer'])."</option>";
 								}
 							}
 							}
@@ -145,9 +145,9 @@ else {
 							while ($row=mysqli_fetch_array($result)){
 								if ($row['OSPI_Test_Engineer'] != 'Manny Mandac'){
 									 if ($Sup_TE1 == $row['OSPI_Test_Engineer']){
-									$output = $output."<option value='".$row['OSPI_Test_Engineer']."' selected>".$row['OSPI_Test_Engineer']."</option>";
+									$output = $output."<option value='".utf8_encode($row['OSPI_Test_Engineer'])."' selected>".utf8_encode($row['OSPI_Test_Engineer'])."</option>";
 								}else{
-									$output = $output."<option value='".$row['OSPI_Test_Engineer']."'>".$row['OSPI_Test_Engineer']."</option>";
+									$output = $output."<option value='".utf8_encode($row['OSPI_Test_Engineer'])."'>".utf8_encode($row['OSPI_Test_Engineer'])."</option>";
 								}
 								
 							}

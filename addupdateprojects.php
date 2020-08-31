@@ -12,6 +12,7 @@
 	
 
 
+
 <br>
 <br>
 
@@ -122,7 +123,7 @@
 							$output = $output."<option value='N/A' disabled selected>Select OSPI Support TE:</option>";
 							while ($row=mysqli_fetch_array($result)){
 								if ($row['OSPI_Test_Engineer'] != 'Manny Mandac' or $row['OSPI_Test_Engineer'] != 'OJT'){
-									$output = $output."<option value='".$row['OSPI_Test_Engineer']."'>".$row['OSPI_Test_Engineer']."</option>";
+									$output = $output."<option value='".utf8_encode($row['OSPI_Test_Engineer'])."'>".utf8_encode($row['OSPI_Test_Engineer'])."</option>";
 								}
 							}
 							$output = $output."<option value='N/A' >N/A</option>";
@@ -357,7 +358,7 @@
 	</thead>
 	<tbody id="timeline">
 		<?php
-			$TE_Name = $_SESSION["TEName"];
+			$TE_Name = utf8_decode($_SESSION["TEName"]);
 			
 			if($TE_Name != ""){
 				$sql ="SELECT * FROM projects WHERE OSPI_Test_Engineer='$TE_Name' or Support_TE ='$TE_Name' ORDER BY Project_ID DESC;";
@@ -377,7 +378,7 @@
 				<td><?php echo $DeviceID; ?></td>
 				<td><?php echo $ProjectName; ?></td>
 				<td><?php echo $BusinessCase; ?></td>
-				<td><?php echo $OSPI_TE ; ?></td>
+				<td><?php echo utf8_encode($OSPI_TE ); ?></td>
 				<td><?php echo $ProjectStatus; ?></td>
 				<td> <button type="button" class="btn btn-warning btn-xs edit_data" id="<?php echo $ProjectID ;?>"><i class="glyphicon glyphicon-pencil"></i> update</button> <button type="button" class="btn btn-danger btn-xs del" id="<?php echo $ProjectID ;?>"><i class="glyphicon glyphicon-trash"></i>delete</button></td>	
 			</tr>
@@ -555,7 +556,7 @@
 					});
 				}
 			}else {
-				alert(OSPITE);
+				//alert(OSPITE);
 				$.ajax({
 							type: 'post',
 							url:'/dmsg/MyPhp/project_ds_update.php',
@@ -594,7 +595,7 @@
 								
 							}, 
 							success:function(data){
-								console.log(data);
+								alert(data);
 								alert('Project has been successfully updated');
 								$("#projectlist").load(location.href + " #projectlist",function(){
 										$("#tableAddproj").dataTable({
@@ -973,7 +974,7 @@ $(document).ready(function(){
 					   
 				}, 
 				success:function(data){
-					//alert(data);
+					alert(data);
 					if(data==1){
 						alert("New Project has been added successfuly");
 					$("#projectlist").load(location.href + " #projectlist",function(){

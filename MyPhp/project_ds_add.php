@@ -6,7 +6,7 @@ session_start();
 $businesscase = mysqli_real_escape_string($con,$_POST['businesscase']);
 $projtype = mysqli_real_escape_string($con,$_POST['projtype']);
 $OSPITE = utf8_decode($_POST['OSPITE']);
-$OSPISUPTE = mysqli_real_escape_string($con,$_POST['OSPISUPTE']);
+$OSPISUPTE = utf8_decode($_POST['OSPISUPTE']);
 $DeviceID = mysqli_real_escape_string($con,$_POST['DeviceID']);
 $ReleaseMethod = $_POST['ReleaseMethod'];
 $ProjectStatus = mysqli_real_escape_string($con,$_POST['ProjectStatus']);

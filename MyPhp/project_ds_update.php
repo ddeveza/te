@@ -8,7 +8,7 @@ $unique = $_POST['Unique'];
 $ProjectName = $_POST['ProjName'];
 $businesscase = $_POST['businesscase'];
 $projtype = $_POST['projtype'];
-$OSPITE = $_POST['OSPITE'];
+$OSPITE = utf8_decode($_POST['OSPITE']);
 $OSPISUPTE = $_POST['OSPISUPTE'];
 $DeviceID = $_POST['DeviceID'];
 $ReleaseMethod = $_POST['ReleaseMethod'];
@@ -28,8 +28,6 @@ $prpdate = $_POST['prpdate'];
 $cabnumber = $_POST['cabnumber'];
 $cabapprovedate = $_POST['cabapprovedate'];
 $cabapproved = $_POST['cabapproved'];
-
-
 
 								
 							
