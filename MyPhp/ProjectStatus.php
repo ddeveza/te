@@ -16,7 +16,7 @@ session_start();
 	
 		if($status != "All"){
 			 
-			$sql_query = "Select Project_Name,Project_ID, Project_Status FROM projects where (OSPI_TEST_ENGINEER ='".$_SESSION["TEName"]."' OR Support_TE='".$_SESSION["TEName"]."') AND Project_Status='".$status."' ORDER BY Project_Name ASC;";
+			$sql_query = "Select Project_Name,Project_ID, Project_Status FROM projects where (OSPI_TEST_ENGINEER ='".utf8_decode($_SESSION["TEName"])."' OR Support_TE='".$_SESSION["TEName"]."') AND Project_Status='".$status."' ORDER BY Project_Name ASC;";
 			
 			$result = mysqli_query($con,$sql_query);
 			if(mysqli_num_rows($result)!=0){
@@ -36,7 +36,7 @@ session_start();
 			echo $output;
 			  }
 		}else{
-			 $sql_query = "Select Project_Name,Project_ID, Project_Status FROM projects where OSPI_TEST_ENGINEER ='".$_SESSION["TEName"]."' OR Support_TE='".$_SESSION["TEName"]."' ORDER BY Project_Status DESC, Project_ID DESC ;";
+			 $sql_query = "Select Project_Name,Project_ID, Project_Status FROM projects where OSPI_TEST_ENGINEER ='".utf8_decode($_SESSION["TEName"])."' OR Support_TE='".$_SESSION["TEName"]."' ORDER BY Project_Status DESC, Project_ID DESC ;";
 			$result = mysqli_query($con,$sql_query);
 		  if(mysqli_num_rows($result)>0){
 			 $output = "<select id='Project1' class='form-control selectpicker' style='width: 700px'>";
