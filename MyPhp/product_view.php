@@ -4,7 +4,7 @@ include 'D:\xampp\htdocs\dmsg\config\config.php';
 session_start();
 $ID= mysqli_real_escape_string($con,$_POST['UniqueId']);
 
-echo $ID;
+//echo $ID;
 
 $sql = "SELECT * FROM Products WHERE Device_ID='$ID';";
 $result = mysqli_query($con,$sql);

@@ -240,8 +240,14 @@
 
 																		<div class="col-md-4">
 
-																		
-																		
+																		<!-- 
+																			<div class="custom-control custom-checkbox">
+																			    <input type="checkbox" class="custom-control-input" id="defaultUnchecked14">
+																			    <label class="custom-control-label" for="defaultUnchecked14">CUH Qual  Status
+
+
+																			</label>
+																			</div>	 -->
 																			
 
 																      </div>
@@ -251,8 +257,11 @@
 
 																		
 																		
-																			
-
+																	<!-- 		<div class="custom-control custom-checkbox">
+																			    <input type="checkbox" class="custom-control-input" id="defaultUnchecked15">
+																			    <label class="custom-control-label" for="defaultUnchecked15">Socket Qual Status</label>
+																			</div>		
+ -->
 
 																      </div>
 
@@ -326,13 +335,13 @@
 														</div>
 														<div class="col-md-6 kitqual" style='padding:10px'>
 																	
-																		
+																		<!-- 
 																			<div class="custom-control custom-checkbox">
 																			    <input type="checkbox" class="custom-control-input" id="KitqualStatus">
 																			    <label class="custom-control-label" for="KitqualStatus">KIT Qual Status
 
 																			</label>
-																			</div>	
+																			</div>	 -->
 
 															</div>	
 
@@ -398,7 +407,7 @@
 																			<option value="" selected >Select</option>
 																			<option value="new">New</option>
 																			<option value="existing">Existing</option>
-																			<option value="N/A">N/A (Tube)</option>
+																			<option value="N/A">N/A (Tube/Cannister)</option>
 																	</select>
 
 

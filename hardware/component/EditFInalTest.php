@@ -240,8 +240,8 @@
 
 																		<div class="col-md-4">
 
-																		<!-- 
-																			<div class="custom-control custom-checkbox">
+																		
+																		<!-- 	<div class="custom-control custom-checkbox">
 																			    <input type="checkbox" class="custom-control-input" id="editcuhqualstatus"  <?php if($cs_cuhqualstatus==1) echo 'checked'?> >
 																			    <label class="custom-control-label" for="editcuhqualstatus" >CUH Qual  Status
 
@@ -256,11 +256,11 @@
 																		<div class="col-md-4">
 
 																		
-																		
-																			<!-- <div class="custom-control custom-checkbox">
+																		<!-- 
+																			<div class="custom-control custom-checkbox">
 																			    <input type="checkbox" class="custom-control-input" id="editsocqualstatus" <?php if($cs_socqualstatus==1) echo 'checked'?> >
 																			    <label class="custom-control-label" for="editsocqualstatus">Socket Qual Status</label>
-																			</div>		 -->
+																			</div>	 -->	
 
 
 																      </div>
@@ -336,12 +336,12 @@
 														<div class="col-md-6 kitqual" style='padding:10px'>
 																	
 																		
-																			<div class="custom-control custom-checkbox">
+																			<!-- <div class="custom-control custom-checkbox">
 																			    <input type="checkbox" class="custom-control-input" id="editKitqualStatus" <?php if($kit_qualstatus == 1) echo 'checked'?>>
 																			    <label class="custom-control-label" for="editKitqualStatus">KIT Qual Status
 
 																			</label>
-																			</div>	
+																			</div>	 -->
 
 															</div>	
 
@@ -407,7 +407,7 @@
 																			<option value="" >Select</option>
 																			<option value="new" <?php if($tray=='new') echo 'selected';?>>New</option>
 																			<option value="existing"  <?php if($tray=='existing') echo 'selected';?>>Existing</option>
-																			<option value="N/A"  <?php if($tray=='N/A') echo 'selected';?>>N/A (Tube)</option>
+																			<option value="N/A"  <?php if($tray=='N/A') echo 'selected';?>>N/A (Tube/Cannister)</option>
 																	</select>
 
 

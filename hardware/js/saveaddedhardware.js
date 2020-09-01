@@ -34,8 +34,8 @@ $(document).ready(()=>{
 				var leadcount = false;
 				var handler =false;
 				var cuh =false;
-				/*var kitnewold =false;
-				var traynewold =false;*/
+				var kitnewold =false;
+				var traynewold =false;
 				
 				$('p.upper').remove();
 				
@@ -200,7 +200,6 @@ $(document).ready(()=>{
 
 				var pcdeviceid=false;
 				var pcprobetech=false;
-				
 				 $.each(wsformarray, function(i,val){
 				 	
 				 	if(val.name=='deviceid' ){
@@ -214,8 +213,8 @@ $(document).ready(()=>{
 
 					}else if(val.name=='probetech'){
 							if (val.value==''){
-								$('input[name="'+val.name+'"]').after('<p class="alert alert-danger probetech" role="alert">Please Enter Probecard Technology</p>');
-								$('#errormessage').append('<p class="alert alert-danger probetech" role="alert">Please Enter Probecard Technology</p>');
+								$('input[name="'+val.name+'"]').after('<p class="alert alert-danger probetech" role="alert">Please Enter PC Technology</p>');
+								$('#errormessage').append('<p class="alert alert-danger probetech" role="alert">Please Enter PC Technology</p>');
 								$('p.probetech').fadeOut(4000);
 							}else{
 								pcprobetech = true;

@@ -288,7 +288,7 @@ $(document).ready(function() {
    		$('td.deviceID').click(function(){
 			
 			var UniqueId =  $(this).attr('id');
-			alert(UniqueId);
+			//alert(UniqueId);
 
 			if(UniqueId != ''){
 

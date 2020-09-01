@@ -595,7 +595,7 @@
 								
 							}, 
 							success:function(data){
-								alert(data);
+								//alert(data);
 								alert('Project has been successfully updated');
 								$("#projectlist").load(location.href + " #projectlist",function(){
 										$("#tableAddproj").dataTable({
@@ -974,7 +974,7 @@ $(document).ready(function(){
 					   
 				}, 
 				success:function(data){
-					alert(data);
+					//alert(data);
 					if(data==1){
 						alert("New Project has been added successfuly");
 					$("#projectlist").load(location.href + " #projectlist",function(){

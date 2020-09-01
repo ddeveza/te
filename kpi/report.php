@@ -1,21 +1,12 @@
-
-<?php
-	session_start();
-  //will check if logged-in
-/*  if(!){
-    header('location: http://10.243.61.117:8080/dmsg/index.php');
-  }
-  $sql = "select * from quotes order by RAND() limit 1";
-  $result = mysqli_query($con,$sql);
-  //echo $result;
-  $row = mysqli_fetch_assoc($result);
-  $quote = $row['Quote'];
-  $a = htmlentities($quote);*/
-
+<?php 
+session_start();
 if( $_SESSION['TEName'] === 'Ian Soliven' ) $home = '/dmsg/Ianhome.php';
 else $home = '/dmsg/home.php';
 
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html>

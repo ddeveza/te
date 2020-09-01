@@ -278,7 +278,7 @@
 		}
 		*/
 
-		//$mail->send();
+		$mail->send();
 		echo 1;
 	
 
