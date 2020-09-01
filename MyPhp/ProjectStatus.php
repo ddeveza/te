@@ -110,6 +110,7 @@ session_start();
 					
 					
 					$('#AddWAR').after("<div id='BusinessCase'><br><br><br><strong>Business Case: </strong>"+data+"</div>");
+					
 					$('#dennis').load(location.href +  ' #dennis',function(){ $("#emptable").dataTable({'order' :[0,'desc']});})
 					
 					$("#moda").load(location.href + " #moda");
