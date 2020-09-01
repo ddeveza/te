@@ -89,7 +89,7 @@
 					while($row=mysqli_fetch_array($result)){
 
 						$Supervisor = $row['Supervisor'];
-						$Engineer = $row[4];
+						$Engineer = utf8_encode($row[4]); //updated for the special character inluded in TE name
 						$ProjName = $row[1];
 						$deviceID = $row['Device_ID'];
 						//Fetch Device Monicker to add on the device id during project review
@@ -290,7 +290,7 @@ $(document).ready(function() {
    		$('td.deviceID').click(function(){
 			
 			var UniqueId =  $(this).attr('id');
-			alert(UniqueId);
+			//alert(UniqueId);
 
 			if(UniqueId != ''){
 
