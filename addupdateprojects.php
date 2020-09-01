@@ -155,8 +155,8 @@
 					<option value="projectstatusempty" disabled selected>Selected Project Status</option>
 					<option value="Ongoing">Ongoing</option>
 					<option value="Incoming">Incoming</option>
-					<option value="On Hold">On Hold</option>
-					<option value="Cancelled">Cancelled</option>
+					<option value="Hold">On Hold</option>
+					<option value="Canceled">Canceled</option>
 					<option value="Completed">Completed</option>					
 					</select></td>
 					<td><label><b>Priority #</b></label></td>

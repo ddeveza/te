@@ -189,7 +189,7 @@ else {
 					<option value="SelectFirst" disabled >Selected Project Status</option>
 					<option value="Ongoing"  <?php if($Status1=='Ongoing') echo 'selected';?>>Ongoing</option>
 					<option value="Incoming" <?php if($Status1=='Incoming') echo 'selected';?>>Incoming</option>
-					<option value="Hold" <?php if($Status1=='Hold') echo 'selected';?>>Hold</option>
+					<option value="Hold" <?php if($Status1=='Hold') echo 'selected';?>>On Hold</option>
 					<option value="Canceled" <?php if($Status1=='Canceled') echo 'selected';?>>Canceled</option>					
 					<option value="Completed" <?php if($Status1=='Completed') echo 'selected';?>>Completed</option>					
 					</select></td>
