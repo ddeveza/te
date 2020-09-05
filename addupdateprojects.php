@@ -204,7 +204,32 @@
 						</td>
 					</tr>
 
+					<tr>
+						<td><label><b>Handler</b></label></td>
+						<td><input type="text" id="handler"  style="text-transform:uppercase" list='handlerlist'>
+								<datalist id="handlerlist">
+									<?php 
+										$sqlhandler = 'SELECT DISTINCT handler from projects ORDER BY handler ASC';
 
+										$resulthandler = mysqli_query($con,$sqlhandler); 
+
+										while($row=mysqli_fetch_array($resulthandler)){
+
+										$handler = strtoupper($row['handler']);
+
+									?>
+									<option value='<?php echo $handler; ?>'>
+
+								 <?php } ?>
+								</datalist>
+
+
+
+						</td>
+
+						<td><label><b>No of Sites</b></label></td>
+						<td><input type="number" id="noofsites"></td>
+					</tr>
 
 					<tr>
 						<td><label><b>OSPI PE</b></label></td>
@@ -475,7 +500,11 @@
 		var PrimaryTE =$('#PrimaryTEedit').val();
 		var Priority =$('#Priorityedit').val();
 		var prpdate = $('#prpdateedit').val();
-		
+
+		var handler = $('#handleredit').val();
+		var noofsites = $('#noofsitesedit').val();
+		/*alert(handler);
+		alert(noofsites);*/
 		//get date value from datepicker
 		var devtstartdate = $('#devtstartdateedit').val();
 		//var devtstartdate = $('#devtstartdate').datepicker('getDate');
@@ -508,59 +537,8 @@
 							type: 'post',
 							url:'/dmsg/MyPhp/project_ds_update.php',
 							data:{
-								prpdate:prpdate,
-								cabnumber:cabnumber,
-								cabapprovedate:cabapprovedate,
-								cabapproved:cabapproved,
-								OSPIPE:OSPIPE,
-								ProjName:ProjName,
-								Unique:Unique,
-									
-								businesscase:businesscase,
-								projtype:projtype,
-								OSPITE:OSPITE,
-								OSPISUPTE:OSPISUPTE,
-								DeviceID:DeviceID,
-								ReleaseMethod:ReleaseMethod,
-								ProjectStatus:ProjectStatus,
-								
-								
-								tester:tester,
-								Devicepackage:Devicepackage,
-								PrimaryTE:PrimaryTE,
-								Priority:Priority,
-								
-								devtstartdate:devtstartdate,
-								qualstartdate:qualstartdate,
-								cabdate:cabdate,
-								ecosubmitteddate:ecosubmitteddate,
-								ecoreleasedddate:ecoreleasedddate
-								
-								
-								
-								
-								
-							}, 
-							success:function(data){
-								console.log(data);
-								alert('Project has been successfully updated');
-								$("#projectlist").load(location.href + " #projectlist",function(){
-										$("#tableAddproj").dataTable({
-											"order": [[ 0, 'desc' ]]
-										});
-										
-									}); 
-								$('#EditModal').modal('hide');
-								
-							}
-					});
-				}
-			}else {
-				//alert(OSPITE);
-				$.ajax({
-							type: 'post',
-							url:'/dmsg/MyPhp/project_ds_update.php',
-							data:{
+								noofsites:noofsites,
+								handler:handler,
 								prpdate:prpdate,
 								cabnumber:cabnumber,
 								cabapprovedate:cabapprovedate,
@@ -596,7 +574,11 @@
 							}, 
 							success:function(data){
 								//alert(data);
-								alert('Project has been successfully updated');
+								if (data==1){
+
+									alert('Project has been successfully updated');
+
+
 								$("#projectlist").load(location.href + " #projectlist",function(){
 										$("#tableAddproj").dataTable({
 											"order": [[ 0, 'desc' ]]
@@ -604,6 +586,77 @@
 										
 									}); 
 								$('#EditModal').modal('hide');
+
+
+								}else {
+
+									console.log('Error');
+								}
+								
+								
+							}
+					});
+				}
+			}else {
+				//alert(OSPITE);
+				$.ajax({
+							type: 'post',
+							url:'/dmsg/MyPhp/project_ds_update.php',
+							data:{
+								noofsites:noofsites,
+								handler:handler,
+								prpdate:prpdate,
+								cabnumber:cabnumber,
+								cabapprovedate:cabapprovedate,
+								cabapproved:cabapproved,
+								OSPIPE:OSPIPE,
+								ProjName:ProjName,
+								Unique:Unique,
+									
+								businesscase:businesscase,
+								projtype:projtype,
+								OSPITE:OSPITE,
+								OSPISUPTE:OSPISUPTE,
+								DeviceID:DeviceID,
+								ReleaseMethod:ReleaseMethod,
+								ProjectStatus:ProjectStatus,
+								
+								
+								tester:tester,
+								Devicepackage:Devicepackage,
+								PrimaryTE:PrimaryTE,
+								Priority:Priority,
+								
+								devtstartdate:devtstartdate,
+								qualstartdate:qualstartdate,
+								cabdate:cabdate,
+								ecosubmitteddate:ecosubmitteddate,
+								ecoreleasedddate:ecoreleasedddate
+								
+								
+								
+								
+								
+							}, 
+							success:function(data){
+								if (data==1){
+
+									alert('Project has been successfully updated');
+
+
+								$("#projectlist").load(location.href + " #projectlist",function(){
+										$("#tableAddproj").dataTable({
+											"order": [[ 0, 'desc' ]]
+										});
+										
+									}); 
+								$('#EditModal').modal('hide');
+
+
+								}else {
+
+									console.log('Error');
+								}
 								
 							}
 					});
@@ -847,7 +900,8 @@ $(document).ready(function(){
 		var Devicepackage =$('#Devicepackage').val();
 		var PrimaryTE =$('#PrimaryTE').val();
 		var Priority =$('#Priority').val();
-		
+		var handler = $('#handler').val();
+		var noofsites = $('#noofsites').val();
 
 		
 		//get date value from datepicker
@@ -862,6 +916,9 @@ $(document).ready(function(){
 		var cabapprovedate = $('#cabapprovedate').val();
 		var cabapproved=$('select#cabapproved').children("option:selected").val();
 		var cabnumber = $('#cabnumber').val();
+
+
+
 		
 		//Checking the required field for the project creation
 		//if (tester == "" ){alert("Please Enter Tester item!");}
@@ -873,6 +930,8 @@ $(document).ready(function(){
 		else if (ProjectStatus=="projectstatusempty"){alert("Please Select Project Status!");}
 		else if (tester == ""){alert("Please Input tester Before AddProject ");}
 		else if (Devicepackage==""){alert("Please Input Device Package Before AddProject");}
+		else if (handler==""){alert("Please Input handler Before AddProject");}
+		else if (noofsites==""){alert("Please Input No of Sites Before AddProject");}
 		else if (projtype == 'FT PROD SUPPORT' || projtype =='WS PROD SUPPORT'){
 
 			if (OSPIPE == ''){
@@ -882,6 +941,8 @@ $(document).ready(function(){
 				type: 'post',
 				url:'/dmsg/MyPhp/project_ds_add.php',
 				data:{
+					   handler:handler,
+					   noofsites:noofsites,
 					   prpdate:prpdate,
 					   cabnumber:cabnumber,
 					   cabapprovedate:cabapprovedate,
@@ -941,6 +1002,9 @@ $(document).ready(function(){
 				type: 'post',
 				url:'/dmsg/MyPhp/project_ds_add.php',
 				data:{
+
+					   handler:handler,
+					   noofsites:noofsites,
 					  prpdate:prpdate,
 					  cabnumber:cabnumber,
 					   cabapprovedate:cabapprovedate,

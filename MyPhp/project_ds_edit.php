@@ -13,34 +13,40 @@ session_start();
 	$fetch = "select * from projects where project_id='".$unique."';";
     $result = mysqli_query($con,$fetch);
 	if(mysqli_num_rows($result)>0){
-	$row =mysqli_fetch_array($result);
-	$projectName = $row['Project_Name'];
-	$BusinessCase = $row['Project_Description'];
-	$releaseMethod1 = $row['Release_Method'];
-	$ProjectType1 = $row['Project_Type'];
-	$TE1 = $row['OSPI_Test_Engineer'];
-	$Sup_TE1 =$row['Support_TE'];
-	$primTE= $row['Primary_Test_Engineer'];
-	$deviceID1 =$row['Device_ID']; 
-	$Status1 = $row['Project_Status'];
-	$devtstartdate = $row['Development_Start_Date'];
-	$devtcycletime = $row['Development_Cycle_Time'];
-	$qualstartdate = $row['Qualification_Start_Date'];
-	$qualcycletime = $row['Qualification_Cycle_Time'];
-	$cabdate = $row['CAB_Date'];
-	$ecosubmitteddate = $row['ECO_Submitted'];
-	$ecosubmitcycletime = $row['ECO_Submit_Cycle_Time'];
-	$ecoapproveddate= $row['ECO_Released'];
-	$ecoapprovecycletime = $row['ECO_Approve_Cycle_Time'];
-    $priority = $row['Priority'];
-	$tester = $row['tester'];
-	$package= $row['package'];
-	$OSPIPE=$row['OSPI_PE'];
-	$cabnumber = $row['CAB_Number'];
-	$cabapprovedate = $row['CAB_Approved_Date'];
-	$cabapproved = $row['CAB_Approved'];
-	$prpdate = $row['PRP_Date'];
+
+			$row =mysqli_fetch_array($result);
+			$projectName = $row['Project_Name'];
+			$BusinessCase = $row['Project_Description'];
+			$releaseMethod1 = $row['Release_Method'];
+			$ProjectType1 = $row['Project_Type'];
+			$TE1 = $row['OSPI_Test_Engineer'];
+			$Sup_TE1 =$row['Support_TE'];
+			$primTE= $row['Primary_Test_Engineer'];
+			$deviceID1 =$row['Device_ID']; 
+			$Status1 = $row['Project_Status'];
+			$devtstartdate = $row['Development_Start_Date'];
+			$devtcycletime = $row['Development_Cycle_Time'];
+			$qualstartdate = $row['Qualification_Start_Date'];
+			$qualcycletime = $row['Qualification_Cycle_Time'];
+			$cabdate = $row['CAB_Date'];
+			$ecosubmitteddate = $row['ECO_Submitted'];
+			$ecosubmitcycletime = $row['ECO_Submit_Cycle_Time'];
+			$ecoapproveddate= $row['ECO_Released'];
+			$ecoapprovecycletime = $row['ECO_Approve_Cycle_Time'];
+		    $priority = $row['Priority'];
+			$tester = $row['tester'];
+			$package= $row['package'];
+			$OSPIPE=$row['OSPI_PE'];
+			$cabnumber = $row['CAB_Number'];
+			$cabapprovedate = $row['CAB_Approved_Date'];
+			$cabapproved = $row['CAB_Approved'];
+			$prpdate = $row['PRP_Date'];
+			$handler = $row['handler'];
+			$noofsites = $row['sites'];
 	}
+
+
+	
 
 
 
@@ -56,7 +62,7 @@ if ($prpdate=='0000-00-00' || $prpdate == Null) {
 	$qualcycletime = 0;
 }
 else {
-	echo 'Dennis';
+	
 	$devtcycletime = max (0, MinDate($prpdate,$cabapprovedate) - Day($qualstartdate) );
 
 	$qualcycletime = max(0, Day($cabapprovedate) -  MaxDate($prpdate,$qualstartdate));
@@ -202,6 +208,15 @@ else {
 						<td><input type="text" id="testeredit" value="<?php echo $tester; ?>"></input></td>
 						<td><label><b>Package</b></label></td>
 						<td><input type="text"  id="Devicepackageedit" value="<?php echo $package; ?>"></input></td>
+					</tr>
+
+
+					<tr>
+						<td><label><b>Handler</b></label></td>
+						<td><input type="text" id="handleredit" value='<?php echo $handler; ?>'></td>
+
+						<td><label><b>No of Sites</b></label></td>
+						<td><input type="number" id="noofsitesedit"  value='<?php echo $noofsites; ?>'></td>
 					</tr>
 
 					<tr>

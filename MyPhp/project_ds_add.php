@@ -22,6 +22,13 @@ $ecoreleasedddate = mysqli_real_escape_string($con,$_POST['ecoreleasedddate']);
 $ProjName = mysqli_real_escape_string($con,$_POST['ProjectName']);
 $OSPI_PE = mysqli_real_escape_string($con,$_POST['OSPIPE']);
 
+
+$handler = mysqli_real_escape_string($con,$_POST['handler']);
+$noofsites = mysqli_real_escape_string($con,$_POST['noofsites']);
+
+
+
+
 $prpdate = $_POST['prpdate'];
 $cabnumber = $_POST['cabnumber'];
 $cabapprovedate = $_POST['cabapprovedate'];
@@ -91,7 +98,10 @@ $add_sql="
 	CAB_Approved_Date,
 	CAB_Approved,
 	CAB_Number,
-	PRP_Date
+	PRP_Date,
+	handler,
+	sites
+
 	
 	
 	)
@@ -121,7 +131,9 @@ $add_sql="
 	'$cabapprovedate',
 	'$cabapproved',
 	'$cabnumber',
-	'$prpdate'
+	'$prpdate',
+	'$handler',
+	'$noofsites'
 
 	
 	

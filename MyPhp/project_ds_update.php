@@ -29,8 +29,10 @@ $cabnumber = $_POST['cabnumber'];
 $cabapprovedate = $_POST['cabapprovedate'];
 $cabapproved = $_POST['cabapproved'];
 
-								
-							
+$handler1 = $_POST['handler'];
+$noofsites1 = $_POST['noofsites'];								
+
+					
 /* $Monicker_sql = "Select Description from products where Device_ID='$DeviceID';";
 
 $result_monicker = mysqli_query($con,$Monicker_sql);
@@ -98,7 +100,9 @@ $update =" UPDATE Projects SET
 	ECO_Released = '$ecoreleasedddate',
 	ECO_Approve_Cycle_Time = '$ecoapprovecycletime',
 	OSPI_PE = '$OSPI_PE',
-	PRP_Date = '$prpdate'
+	PRP_Date = '$prpdate',
+	handler = '$handler1',
+	sites = '$noofsites1'
 	
 	WHERE Project_ID='$unique';
 	";
