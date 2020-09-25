@@ -94,7 +94,8 @@
 						$deviceID = $row['Device_ID'];
 						//Fetch Device Monicker to add on the device id during project review
 						$monicker = $row['Description'];	
-								
+						$noofsites = $row['sites'];
+						$handler = $row['handler'];		
 
 						$Workweek = $row['yearweek'];
 						$StatusUpdate = $row['Detailed_Status_Update'];
@@ -107,32 +108,32 @@
 						//will check here if to whom the TE is reporting if DU = jong and IS = Ian
 						if ($Supervisor == 'DU'|| $Engineer = 'Nelson Banguis'){
 					?>
-					<tr>
-						<td witdth=""><?php echo $ProjectID;  ?></td>
+							<tr>
+								<td witdth=""><?php echo $ProjectID;  ?></td>
 
-						<td witdth=""><?php 
-									if ($OSPIPE !=''){
-										echo $Engineer. ','.$OSPIPE;  
-									}else echo $Engineer;
-						?></td>
-						<td witdth="" class='projectname' id="<?php echo $ProjectID; ?>" ><span class="d-inline-block" tabindex="0" data-placement="bottom"  data-toggle="tooltip" title="<?php echo $BusinessCase  ;?>" ><strong style="cursor: pointer;"><?php echo $ProjName ; ?></strong></span></td>
-						
-						<!--Remove PE  <td witdth=""><?php //echo $OSPIPE  ;?></td> -->
-						<!-- Append monicker to device ID -->
-						<td witdth="50%"  class='deviceID' id="<?php echo $deviceID; ?>" style="cursor: pointer;"><?php 
-									if($monicker==""){
-										echo $deviceID ;	
-									}else{echo $deviceID ." (" .$monicker.")"; }?>
-									
-						</td>
-						<td witdth=""><?php echo $ProjStatus  ;?></td>
-						<td witdth=""><?php echo $Workweek  ;?></td>
-					
-					
-						<td witdth=""><?php echo $StatusUpdate;  ?></td>
-							<td witdth="" id="data"><textarea rows="3" cols="20"  id="<?php echo $ProjectID ?>"><?php echo $Remarks;  ?></textarea></td>
+								<td witdth=""><?php 
+											if ($OSPIPE !=''){
+												echo $Engineer. ','.$OSPIPE;  
+											}else echo $Engineer;
+								?></td>
+								<td witdth="" class='projectname' id="<?php echo $ProjectID; ?>" ><span class="d-inline-block" tabindex="0" data-placement="bottom"  data-toggle="tooltip" title="<?php echo $BusinessCase  ;?>" ><strong style="cursor: pointer;"><?php echo $ProjName ; ?> <br> <?php echo "No. of Sites: ".$noofsites ; ?> <br> <?php echo "Handler/Prober: ".$handler ; ?></strong></span></td>
+								
+								<!--Remove PE  <td witdth=""><?php //echo $OSPIPE  ;?></td> -->
+								<!-- Append monicker to device ID -->
+								<td witdth="50%"  class='deviceID' id="<?php echo $deviceID; ?>" style="cursor: pointer;"><?php 
+											if($monicker==""){
+												echo $deviceID ;	
+											}else{echo $deviceID ." (" .$monicker.")"; }?>
+											
+								</td>
+								<td witdth=""><?php echo $ProjStatus  ;?></td>
+								<td witdth=""><?php echo $Workweek  ;?></td>
+							
+							
+								<td witdth=""><?php echo $StatusUpdate;  ?></td>
+									<td witdth="" id="data"><textarea rows="3" cols="20"  id="<?php echo $ProjectID ?>"><?php echo $Remarks;  ?></textarea></td>
 
-					</tr>
+							</tr>
 
 				<?php }} ?>
 
@@ -234,7 +235,7 @@ $(document).ready(function() {
                 var column = this;
 				
                 var select = $('<select name="wgtmsr" id="wgtmsr" style="width: 100px !important; min-width: 100px; max-width: 50px;><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
+                    .appendTo( $(column.header()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val()

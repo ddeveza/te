@@ -231,8 +231,8 @@ $(document).ready(function() {
             this.api().columns([1,4]).every( function () {
                 var column = this;
 				
-                var select = $('<select name="wgtmsr" id="wgtmsr" style="width: 100px !important; min-width: 100px; max-width: 50px;><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
+                var select = $('<select name="wgtmsr" id="wgtmsr" style="width: 80px !important; min-width: 80px; max-width: 90px;><option value=""></option></select>')
+                    .appendTo( $(column.header()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val()

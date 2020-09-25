@@ -212,7 +212,7 @@ else {
 
 
 					<tr>
-						<td><label><b>Handler</b></label></td>
+						<td><label><b>Handler/Prober</b></label></td>
 						<td><input type="text" id="handleredit" value='<?php echo $handler; ?>'></td>
 
 						<td><label><b>No of Sites</b></label></td>

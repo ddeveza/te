@@ -205,7 +205,7 @@
 					</tr>
 
 					<tr>
-						<td><label><b>Handler</b></label></td>
+						<td><label><b>Handler/Prober</b></label></td>
 						<td><input type="text" id="handler"  style="text-transform:uppercase" list='handlerlist'>
 								<datalist id="handlerlist">
 									<?php 
